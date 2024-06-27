@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Apply Kubernetes deployment
+      command: kubectl apply -f /deployment.yaml
+
+    - name: Apply Kubernetes service
+      command: kubectl apply -f /service.yaml
