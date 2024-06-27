@@ -1,13 +1,20 @@
+# Use the official Node.js 14 image
 FROM node:14
 
-WORKDIR ./
+# Set the working directory inside the container
+WORKDIR /app
 
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy all local files to the working directory in the container
 COPY . .
 
+# Expose port 8080 to the outside world
 EXPOSE 8080
 
-CMD [ "node", "index.js" ]
+# Command to run your application
+CMD ["node", "index.js"]
